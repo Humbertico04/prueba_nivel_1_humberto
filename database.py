@@ -3,7 +3,7 @@ class Vehiculo():
         self.color = color
         self.ruedas = ruedas
     def __str__(self):
-        return "color {}, {} ruedas".format( self.color, self.ruedas )
+        return "Color {}, {} ruedas".format( self.color, self.ruedas )
     
 class Coche(Vehiculo):
     def __init__(self, color, ruedas, velocidad, cilindrada):
@@ -39,4 +39,17 @@ class Motocicleta(Bicicleta):
     def __str__(self):
         return Bicicleta.__str__(self) + ", {} km/h, {}cc".format(self.velocidad, self.cilindrada)
 
+camioneta = Camioneta("negro", 4, 120, 2000, 1000)
+motocicleta = Motocicleta("azul", 2, "deportiva", 180, 1000)
+coche = Coche("rosa", 4, 210, 2500)
+bicicleta = Bicicleta("marron", 2, "urbana")
+lista = (camioneta, motocicleta, coche, bicicleta)
+
+
+def catalogar(lista):
+    for vehiculo in lista:
+        print("{}: {}".format(type(vehiculo).__name__, vehiculo))
+    return lista
+
+catalogar(lista)
 
