@@ -22,8 +22,10 @@ def iniciar():
         helpers.limpiar_pantalla()
 
         if opcion == '1':
-            print("Listando los vehículos...\n")
-            db.catalogar(db.lista)
+            print("Listando los vehiculos...\n")
+            for vehiculo in db.Vehiculos.lista:
+                print("{}: {}".format(type(vehiculo).__name__, vehiculo))
+        
 
         if opcion == '2':
             print("Listando los clientes...\n")
