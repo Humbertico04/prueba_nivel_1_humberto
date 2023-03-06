@@ -60,8 +60,10 @@ def iniciar():
             if opcion == '1':
                 velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
                 cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
-                db.Vehiculos.crear(id, color, ruedas, velocidad, cilindrada)
-            # db.Clientes.crear(dni, nombre, apellido)
+                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada)
+            elif opcion == '2':
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad)
             print("Cliente añadido correctamente.")
 
         elif opcion == '5':
