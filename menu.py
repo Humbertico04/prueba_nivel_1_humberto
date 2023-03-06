@@ -30,7 +30,7 @@ def iniciar():
             print("Buscando un vehiculo...\n")
             id = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
             vehiculo = db.Vehiculos.buscar(id)
-            print(vehiculo) if vehiculo else print("Vehículo no encontrado.")
+            print("{}: {}".format(type(vehiculo).__name__, vehiculo)) if vehiculo else print("Vehículo no encontrado.")
 
         elif opcion == '6':
             print("Saliendo...\n")
