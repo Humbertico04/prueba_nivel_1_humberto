@@ -1,4 +1,6 @@
 import csv
+import config
+import helpers
 
 class Vehiculo():
     def __init__(self, id, color, ruedas):
@@ -54,35 +56,19 @@ class Quad(Coche):
     def __str__(self):
         return Coche.__str__(self) + ", de tipo {}, modelo {}, {} kg de carga".format(self.tipo, self.modelo, self.carga)
 
-vehiculo = Vehiculo(123, "rojo", 4)
-coche = Coche(123, "rojo", 4, 200, 1000)
-motocicleta = Motocicleta(123, "rojo", 2, "deportiva", 200, 1000)
-quad = Quad(123, "rojo", 4, "deportiva", 200, 1000, "modelo", 1000)
 
-print(quad)
+class Vehiculos:
+    lista = []
+    with open(config.DATABASE_PATH, newline='\n') as fichero:
+        reader = csv.reader(fichero, delimiter=';')
+        for tipo in reader:
+            if tipo[0] == "Coche":
+                coche = Coche(*tipo[1:])
+                lista.append(coche)
 
-def catalogar(lista, ruedas=None):
-    contador = 0
-    for vehiculo in lista:
-        if vehiculo.ruedas == ruedas:
-            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
-            contador +=1
-        elif ruedas == None:
-            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
-    if vehiculo.ruedas == ruedas:
-        print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
-    return contador
-
-catalogar(lista=[vehiculo, coche, motocicleta, quad], ruedas=4)
-
-# class Vehiculos:
-#     lista = []
-#     with open(config.db_path("bicis"), newline='\n') as fichero:
-#         reader = csv.reader(fichero, delimiter=';')
-#         for color, ruedas, tipo, velocidad, cilindrada in reader:
-#             vehiculo = Vehiculo(color, ruedas, tipo, velocidad, cilindrada)
-#             lista.append(vehiculo)
-
+# reader = csv.reader(open(config.DATABASE_PATH, newline='\n'), delimiter=';')
+# for a in reader:
+#     print(a)
 #     with open(config.db_path("coches"), newline='\n') as fichero:
 #         reader = csv.reader(fichero, delimiter=';')
 #         for color, ruedas, velocidad, cilindrada, carga in reader:
