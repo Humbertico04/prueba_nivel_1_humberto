@@ -24,7 +24,7 @@ def catalogar(lista, ruedas=None):
         print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
     return contador
 
-def dni_valido(id, lista):
+def id_valido(id, lista):
     if not re.match('[0-9]{2}[A-Z]$', id):
         print("ID incorrecto, debe cumplir el formato.")
         return False

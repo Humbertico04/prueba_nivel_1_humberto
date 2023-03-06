@@ -87,8 +87,19 @@ class Vehiculos:
                 return vehiculo
 
     @staticmethod
-    def crear(dni, nombre, apellido):
-        vehiculo = Vehiculo(dni, nombre, apellido)
+    def crear(opcion, *args):
+        if opcion == "1":
+            vehiculo = Coche(*args)
+        elif opcion == "2":
+            vehiculo = Bicicleta(*args)
+        elif opcion == "3":
+            vehiculo = Formula1(*args)
+        elif opcion == "4":
+            vehiculo = Camioneta(*args)
+        elif opcion == "5":
+            vehiculo = Motocicleta(*args)
+        elif opcion == "6":
+            vehiculo = Quad(*args)
         Vehiculos.lista.append(vehiculo)
         Vehiculos.guardar()
         return vehiculo

@@ -47,6 +47,7 @@ def iniciar():
             opcion = input("> ")
             helpers.limpiar_pantalla()
             print("Añadiendo un vehiculo...\n")
+
             id = None
             while True:
                 id = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
@@ -55,7 +56,12 @@ def iniciar():
 
             color = helpers.leer_texto(2, 30, "Color (de 2 a 30 chars)").capitalize()
             ruedas = helpers.leer_texto(2, 30, "Apellido (de 2 a 30 chars)").capitalize()
-            db.Clientes.crear(dni, nombre, apellido)
+
+            if opcion == '1':
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(id, color, ruedas, velocidad, cilindrada)
+            # db.Clientes.crear(dni, nombre, apellido)
             print("Cliente añadido correctamente.")
 
         elif opcion == '5':
