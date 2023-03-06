@@ -61,10 +61,38 @@ def iniciar():
                 velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
                 cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada)
+
             elif opcion == '2':
+                tipo = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(opcion, id, color, ruedas, tipo)
+
+            elif opcion == '3':
                 velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad)
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                equipo = helpers.leer_texto(1, 3, "Equipo (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, equipo)
+
+            elif opcion == '4':
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                carga = helpers.leer_texto(1, 3, "Carga (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, carga)
+
+            elif opcion == '5':
+                tipo = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+
+            elif opcion == '6':
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                tipo = helpers.leer_texto(1, 3, "Tipo (1 a 3 chars)").capitalize()
+                modelo = helpers.leer_texto(1, 3, "Modelo (1 a 3 chars)").capitalize()
+                carga = helpers.leer_texto(1, 3, "Carga (1 a 3 chars)").capitalize()
+                db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, tipo, modelo, carga)
+                
             print("Cliente añadido correctamente.")
+
 
         elif opcion == '5':
             print("Borrando un vehículo...\n")
