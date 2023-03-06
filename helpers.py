@@ -11,17 +11,14 @@ def leer_texto(longitud_min=0, longitud_max=100, mensaje=None):
         if len(texto) >= longitud_min and len(texto) <= longitud_max:
             return texto    
 
-def tipo_clase(objeto):
-    return type(objeto).__name__
-
 def catalogar(lista, ruedas=None):
     contador = 0
     for vehiculo in lista:
         if vehiculo.ruedas == ruedas:
-            print("{}: {}".format(tipo_clase(vehiculo), vehiculo))
+            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
             contador +=1
         elif ruedas == None:
-            print("{}: {}".format(tipo_clase(vehiculo), vehiculo))
+            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
     if vehiculo.ruedas == ruedas:
         print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
     return contador
