@@ -14,7 +14,7 @@ def iniciar():
         print("[2] Buscar un vehículo   ")
         print("[3] Añadir un cliente   ")
         print("[4] Modificar un cliente")
-        print("[5] Borrar un cliente   ")
+        print("[5] Borrar un vehículo   ")
         print("[6] Cerrar el Gestor    ")
         print("========================")
 
@@ -31,6 +31,12 @@ def iniciar():
             id = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
             vehiculo = db.Vehiculos.buscar(id)
             print("{}: {}".format(type(vehiculo).__name__, vehiculo)) if vehiculo else print("Vehículo no encontrado.")
+
+        elif opcion == '5':
+            print("Borrando un vehículo...\n")
+            dni = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
+            print("Vehículo borrado correctamente.") if db.Vehiculos.borrar(
+                dni) else print("Vehículo no encontrado.")
 
         elif opcion == '6':
             print("Saliendo...\n")

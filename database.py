@@ -102,13 +102,13 @@ class Vehiculos:
     #             Clientes.guardar()
     #             return Clientes.lista[indice]
 
-    # @staticmethod
-    # def borrar(id):
-    #     for indice, vehiculo in enumerate(Vehiculos.lista):
-    #         if vehiculo.id == id:
-    #             vehiculo = Vehiculos.lista.pop(indice)
-    #             Vehiculos.guardar()
-    #             return vehiculo
+    @staticmethod
+    def borrar(id):
+        for indice, vehiculo in enumerate(Vehiculos.lista):
+            if vehiculo.id == id:
+                vehiculo = Vehiculos.lista.pop(indice)
+                Vehiculos.guardar()
+                return vehiculo
 
     @staticmethod
     def guardar():
