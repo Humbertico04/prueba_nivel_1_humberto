@@ -1,5 +1,6 @@
 import os
 import platform
+import re
 
 def limpiar_pantalla():
     os.system('cls') if platform.system() == "Windows" else os.system('clear')
@@ -22,3 +23,13 @@ def catalogar(lista, ruedas=None):
     if vehiculo.ruedas == ruedas:
         print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
     return contador
+
+def dni_valido(id, lista):
+    if not re.match('[0-9]{2}[A-Z]$', id):
+        print("ID incorrecto, debe cumplir el formato.")
+        return False
+    for vehiculo in lista:
+        if vehiculo.id == id:
+            print("ID utilizado por otro vehículo.")
+            return False
+    return True

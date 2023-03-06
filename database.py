@@ -86,12 +86,12 @@ class Vehiculos:
             if vehiculo.id == id:
                 return vehiculo
 
-    # @staticmethod
-    # def crear(dni, nombre, apellido):
-    #     vehiculo = Vehiculo(dni, nombre, apellido)
-    #     Vehiculos.lista.append(vehiculo)
-    #     Vehiculos.guardar()
-    #     return vehiculo
+    @staticmethod
+    def crear(dni, nombre, apellido):
+        vehiculo = Vehiculo(dni, nombre, apellido)
+        Vehiculos.lista.append(vehiculo)
+        Vehiculos.guardar()
+        return vehiculo
 
     # @staticmethod
     # def modificar(dni, nombre, apellido):
