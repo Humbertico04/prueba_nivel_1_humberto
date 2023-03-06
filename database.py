@@ -88,10 +88,10 @@ class Vehiculos:
 
     # @staticmethod
     # def crear(dni, nombre, apellido):
-    #     cliente = Cliente(dni, nombre, apellido)
-    #     Clientes.lista.append(cliente)
-    #     Clientes.guardar()
-    #     return cliente
+    #     vehiculo = Vehiculo(dni, nombre, apellido)
+    #     Vehiculos.lista.append(vehiculo)
+    #     Vehiculos.guardar()
+    #     return vehiculo
 
     # @staticmethod
     # def modificar(dni, nombre, apellido):
@@ -103,18 +103,29 @@ class Vehiculos:
     #             return Clientes.lista[indice]
 
     # @staticmethod
-    # def borrar(dni):
-    #     for indice, cliente in enumerate(Clientes.lista):
-    #         if cliente.dni == dni:
-    #             cliente = Clientes.lista.pop(indice)
-    #             Clientes.guardar()
-    #             return cliente
+    # def borrar(id):
+    #     for indice, vehiculo in enumerate(Vehiculos.lista):
+    #         if vehiculo.id == id:
+    #             vehiculo = Vehiculos.lista.pop(indice)
+    #             Vehiculos.guardar()
+    #             return vehiculo
 
-    # @staticmethod
-    # def guardar():
-    #     with open(config.DATABASE_PATH, 'w', newline='\n') as fichero:
-    #         writer = csv.writer(fichero, delimiter=';')
-    #         for cliente in Clientes.lista:
-    #             writer.writerow((cliente.dni, cliente.nombre, cliente.apellido))
+    @staticmethod
+    def guardar():
+        with open(config.DATABASE_PATH, 'w', newline='\n') as fichero:
+            writer = csv.writer(fichero, delimiter=';')
+            for vehiculo in Vehiculos.lista:
+                if type(vehiculo).__name__ == "Coche":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.velocidad, vehiculo.cilindrada))
+                elif type(vehiculo).__name__ == "Bicicleta":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.tipo))
+                elif type(vehiculo).__name__ == "Formula1":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.velocidad, vehiculo.cilindrada, vehiculo.equipo))
+                elif type(vehiculo).__name__ == "Camioneta":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.velocidad, vehiculo.cilindrada, vehiculo.carga))
+                elif type(vehiculo).__name__ == "Motocicleta":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.tipo, vehiculo.velocidad, vehiculo.cilindrada))
+                elif type(vehiculo).__name__ == "Quad":
+                    writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.velocidad, vehiculo.cilindrada, vehiculo.tipo, vehiculo.modelo, vehiculo.carga))
 
 
