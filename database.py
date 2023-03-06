@@ -26,8 +26,8 @@ class Bicicleta(Vehiculo):
         return Vehiculo.__str__(self) + ", de tipo {}".format(self.tipo)
 
 class Formula1(Coche):
-    def __init__(self, id, color, ruedas, numBastidor, velocidad, cilindrada, equipo):
-        super().__init__(id, color, ruedas, numBastidor, velocidad, cilindrada)
+    def __init__(self, id, color, ruedas, velocidad, cilindrada, equipo):
+        super().__init__(id, color, ruedas, velocidad, cilindrada)
         self.equipo = equipo
     def __str__(self):
         return Coche.__str__(self) + ", del equipo {}".format(self.equipo)
@@ -56,7 +56,6 @@ class Quad(Coche):
     def __str__(self):
         return Coche.__str__(self) + ", de tipo {}, modelo {}, {} kg de carga".format(self.tipo, self.modelo, self.carga)
 
-
 class Vehiculos:
     lista = []
     with open(config.DATABASE_PATH, newline='\n') as fichero:
@@ -65,15 +64,21 @@ class Vehiculos:
             if tipo[0] == "Coche":
                 coche = Coche(*tipo[1:])
                 lista.append(coche)
-
-# reader = csv.reader(open(config.DATABASE_PATH, newline='\n'), delimiter=';')
-# for a in reader:
-#     print(a)
-#     with open(config.db_path("coches"), newline='\n') as fichero:
-#         reader = csv.reader(fichero, delimiter=';')
-#         for color, ruedas, velocidad, cilindrada, carga in reader:
-#             vehiculo = Vehiculo(color, ruedas, velocidad, cilindrada, carga)
-#             lista.append(vehiculo)
+            if tipo[0] == "Bicicleta":
+                bicicleta = Bicicleta(*tipo[1:])
+                lista.append(bicicleta)
+            if tipo[0] == "Formula1":
+                formula1 = Formula1(*tipo[1:])
+                lista.append(formula1)
+            if tipo[0] == "Camioneta":
+                camioneta = Camioneta(*tipo[1:])
+                lista.append(camioneta)
+            if tipo[0] == "Motocicleta":
+                motocicleta = Motocicleta(*tipo[1:])
+                lista.append(motocicleta)
+            if tipo[0] == "Quad":
+                quad = Quad(*tipo[1:])
+                lista.append(quad)
 
     # @staticmethod
     # def buscar(dni):

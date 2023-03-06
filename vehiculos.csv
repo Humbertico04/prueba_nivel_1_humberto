@@ -1,1 +1,6 @@
-Coche;id; color; ruedas; velocidad; cilindrada
+Coche;1;rojo;4;200;2000
+Bicicleta;2;azul;2;urbana
+Formula1;3;verde;4;200;2000;Ferrari
+Camioneta;4;amarillo;4;200;2000;1000
+Motocicleta;5;rosa;2;urbana;200;2000
+Quad;6;negro;4;200;2000;urbana;modelo;1000
