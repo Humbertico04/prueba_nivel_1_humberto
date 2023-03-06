@@ -25,6 +25,10 @@ def iniciar():
             print("Listando los vehículos...\n")
             db.catalogar(db.lista)
 
+        if opcion == '2':
+            print("Listando los clientes...\n")
+            for vehiculo in db.Vehiculos.lista:
+                print(vehiculo)
 
         elif opcion == '6':
             print("Saliendo...\n")
