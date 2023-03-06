@@ -1,6 +1,5 @@
 import csv
 import config
-import helpers
 
 class Vehiculo():
     def __init__(self, id, color, ruedas):
@@ -104,15 +103,6 @@ class Vehiculos:
         Vehiculos.guardar()
         return vehiculo
 
-    # @staticmethod
-    # def modificar(dni, nombre, apellido):
-    #     for indice, cliente in enumerate(Clientes.lista):
-    #         if cliente.dni == dni:
-    #             Clientes.lista[indice].nombre = nombre
-    #             Clientes.lista[indice].apellido = apellido
-    #             Clientes.guardar()
-    #             return Clientes.lista[indice]
-
     @staticmethod
     def borrar(id):
         for indice, vehiculo in enumerate(Vehiculos.lista):
@@ -138,5 +128,3 @@ class Vehiculos:
                     writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.tipo, vehiculo.velocidad, vehiculo.cilindrada))
                 elif type(vehiculo).__name__ == "Quad":
                     writer.writerow((type(vehiculo).__name__, vehiculo.id, vehiculo.color, vehiculo.ruedas, vehiculo.velocidad, vehiculo.cilindrada, vehiculo.tipo, vehiculo.modelo, vehiculo.carga))
-
-
