@@ -80,11 +80,11 @@ class Vehiculos:
                 quad = Quad(*tipo[1:])
                 lista.append(quad)
 
-    # @staticmethod
-    # def buscar(dni):
-    #     for cliente in Clientes.lista:
-    #         if cliente.dni == dni:
-    #             return cliente
+    @staticmethod
+    def buscar(id):
+        for vehiculo in Vehiculos.lista:
+            if vehiculo.id == id:
+                return vehiculo
 
     # @staticmethod
     # def crear(dni, nombre, apellido):
