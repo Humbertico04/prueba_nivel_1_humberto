@@ -12,9 +12,10 @@ def iniciar():
         print("========================")
         print("[1] Listar los vehículos ")
         print("[2] Buscar un vehículo   ")
-        print("[3] Añadir un cliente   ")
-        print("[4] Modificar un cliente")
-        print("[5] Borrar un vehículo   ")
+        print("[3] Añadir un vehículo   ")
+        
+        print("[4] Borrar un vehículo   ")
+        print("[5] Catalogar por ruedas")
         print("[6] Cerrar el Gestor    ")
         print("========================")
 
@@ -27,7 +28,7 @@ def iniciar():
                 print("{}: {}".format(type(vehiculo).__name__, vehiculo))
         
         elif opcion == '2':
-            print("Buscando un vehiculo...\n")
+            print("Buscando un vehículo...\n")
             id = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
             vehiculo = db.Vehiculos.buscar(id)
             print("{}: {}".format(type(vehiculo).__name__, vehiculo)) if vehiculo else print("Vehículo no encontrado.")
@@ -46,7 +47,7 @@ def iniciar():
 
             opcion = input("> ")
             helpers.limpiar_pantalla()
-            print("Añadiendo un vehiculo...\n")
+            print("Añadiendo un vehículo...\n")
 
             id = None
             while True:
@@ -55,15 +56,15 @@ def iniciar():
                     break
 
             color = helpers.leer_texto(2, 30, "Color (de 2 a 30 chars)").capitalize()
-            ruedas = helpers.leer_texto(2, 30, "Apellido (de 2 a 30 chars)").capitalize()
+            ruedas = helpers.leer_texto(2, 30, "Ruedas (de 2 a 30 chars)").capitalize()
 
             if opcion == '1':
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                velocidad = helpers.leer_texto(1, 3, "Velocidad (km/h)").capitalize()
+                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (cc)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada)
 
             elif opcion == '2':
-                tipo = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                tipo = helpers.leer_texto(1, 3, "Tipo (urbana/deportiva)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, tipo)
 
             elif opcion == '3':
@@ -79,7 +80,7 @@ def iniciar():
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, carga)
 
             elif opcion == '5':
-                tipo = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
+                tipo = helpers.leer_texto(1, 3, "Tipo (urbana/deportiva)").capitalize()
                 velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
                 cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
 
@@ -90,15 +91,20 @@ def iniciar():
                 modelo = helpers.leer_texto(1, 3, "Modelo (1 a 3 chars)").capitalize()
                 carga = helpers.leer_texto(1, 3, "Carga (1 a 3 chars)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, tipo, modelo, carga)
-                
-            print("Cliente añadido correctamente.")
 
+            print("Vehículo añadido correctamente.")
 
-        elif opcion == '5':
+        elif opcion == '4':
             print("Borrando un vehículo...\n")
             dni = helpers.leer_texto(3, 3, "ID (2 int y 1 char)").upper()
             print("Vehículo borrado correctamente.") if db.Vehiculos.borrar(
                 dni) else print("Vehículo no encontrado.")
+
+        elif opcion == '5':
+            print("Buscando por ruedas...\n")
+
+            ruedas = input("Ruedas (1 int)\n> ")
+            helpers.catalogar(db.Vehiculos.lista, ruedas)
 
         elif opcion == '6':
             print("Saliendo...\n")

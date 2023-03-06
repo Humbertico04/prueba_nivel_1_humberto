@@ -20,8 +20,8 @@ def catalogar(lista, ruedas=None):
             contador +=1
         elif ruedas == None:
             print("{}: {}".format(type(vehiculo).__name__, vehiculo))
-    if vehiculo.ruedas == ruedas:
-        print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
+    if ruedas != None:
+        print("\nSe han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
     return contador
 
 def id_valido(id, lista):
