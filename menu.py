@@ -55,41 +55,41 @@ def iniciar():
                 if helpers.id_valido(id, db.Vehiculos.lista):
                     break
 
-            color = helpers.leer_texto(2, 30, "Color (de 2 a 30 chars)").capitalize()
-            ruedas = helpers.leer_texto(2, 30, "Ruedas (de 2 a 30 chars)").capitalize()
+            color = helpers.leer_texto(2, 30, "Color").capitalize()
+            ruedas = helpers.leer_numero(1, 30, "Ruedas (int)").capitalize()
 
             if opcion == '1':
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (km/h)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (cc)").capitalize()
+                velocidad = helpers.leer_numero(1, 400, "Velocidad km/h (int)").capitalize()
+                cilindrada = helpers.leer_numero(1, 2000, "Cilindrada cc (int)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada)
 
             elif opcion == '2':
-                tipo = helpers.leer_texto(1, 3, "Tipo (urbana/deportiva)").capitalize()
+                tipo = helpers.leer_texto(1, 10, "Tipo (urbana/deportiva)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, tipo)
 
             elif opcion == '3':
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
-                equipo = helpers.leer_texto(1, 3, "Equipo (1 a 3 chars)").capitalize()
+                velocidad = helpers.leer_numero(1, 400, "Velocidad km/h (int)").capitalize()
+                cilindrada = helpers.leer_texto(1, 2000, "Cilindrada cc (int)").capitalize()
+                equipo = helpers.leer_texto(1, 20, "Equipo").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, equipo)
 
             elif opcion == '4':
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
-                carga = helpers.leer_texto(1, 3, "Carga (1 a 3 chars)").capitalize()
+                velocidad = helpers.leer_numero(1, 400, "Velocidad km/h (int)").capitalize()
+                cilindrada = helpers.leer_texto(1, 2000, "Cilindrada cc (int)").capitalize()
+                carga = helpers.leer_numero(1, 8000, "Carga kg (int)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, carga)
 
             elif opcion == '5':
-                tipo = helpers.leer_texto(1, 3, "Tipo (urbana/deportiva)").capitalize()
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
+                tipo = helpers.leer_texto(1, 10, "Tipo (urbana/deportiva)").capitalize()
+                velocidad = helpers.leer_numero(1, 400, "Velocidad km/h (int)").capitalize()
+                cilindrada = helpers.leer_texto(1, 2000, "Cilindrada cc (int)").capitalize()
 
             elif opcion == '6':
-                velocidad = helpers.leer_texto(1, 3, "Velocidad (1 a 3 chars)").capitalize()
-                cilindrada = helpers.leer_texto(1, 3, "Cilindrada (1 a 3 chars)").capitalize()
-                tipo = helpers.leer_texto(1, 3, "Tipo (1 a 3 chars)").capitalize()
-                modelo = helpers.leer_texto(1, 3, "Modelo (1 a 3 chars)").capitalize()
-                carga = helpers.leer_texto(1, 3, "Carga (1 a 3 chars)").capitalize()
+                velocidad = helpers.leer_numero(1, 400, "Velocidad km/h (int)").capitalize()
+                cilindrada = helpers.leer_texto(1, 2000, "Cilindrada cc (int)").capitalize()
+                tipo = helpers.leer_texto(1, 10, "Tipo (urbana/deportiva)").capitalize()
+                modelo = helpers.leer_texto(1, 20, "Modelo").capitalize()
+                carga = helpers.leer_numero(1, 8000, "Carga kg (int)").capitalize()
                 db.Vehiculos.crear(opcion, id, color, ruedas, velocidad, cilindrada, tipo, modelo, carga)
 
             print("Vehículo añadido correctamente.")

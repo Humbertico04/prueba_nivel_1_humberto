@@ -10,7 +10,17 @@ def leer_texto(longitud_min=0, longitud_max=100, mensaje=None):
     while True:
         texto = input("> ")
         if len(texto) >= longitud_min and len(texto) <= longitud_max:
-            return texto    
+            return texto 
+
+def leer_numero(min=0, max=100, mensaje=None):
+    print(mensaje) if mensaje else None
+    while True:
+        try:
+            numero = input("> ")
+            if int(numero) >= min and int(numero) <= max:
+                return numero
+        except ValueError:
+            pass
 
 def catalogar(lista, ruedas=None):
     contador = 0
