@@ -1,5 +1,5 @@
 import csv
-import config
+# import config
 
 class Vehiculo():
     def __init__(self, id, color, ruedas):
@@ -62,16 +62,16 @@ quad = Quad(123, "rojo", 4, "deportiva", 200, 1000, "modelo", 1000)
 
 print(quad)
 
-# def catalogar(lista, ruedas=-1):
-#     contador = 0
-#     for vehiculo in lista:
-#         if vehiculo.ruedas == ruedas:
-#             print("{}: {}".format(type(vehiculo).__name__, vehiculo))
-#             contador +=1
-#             print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
-#         elif ruedas == -1:
-#             print("{}: {}".format(type(vehiculo).__name__, vehiculo))
-#     return contador
+def catalogar(lista, ruedas=-1):
+    contador = 0
+    for vehiculo in lista:
+        if vehiculo.ruedas == ruedas:
+            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
+            contador +=1
+            print("Se han encontrado {} vehículos con {} ruedas".format(contador, ruedas))
+        elif ruedas == -1:
+            print("{}: {}".format(type(vehiculo).__name__, vehiculo))
+    return contador
 
 
 # class Vehiculos:
